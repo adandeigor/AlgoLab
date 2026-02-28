@@ -1,6 +1,10 @@
 name: Build and Release AlgoLab
 
 on:
+  push:
+    branches:
+      - main
+      - master
   release:
     types: [created]
   # Permet de lancer ponctuellement à la main depuis l'interface Github
