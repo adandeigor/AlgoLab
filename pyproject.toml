@@ -1,0 +1,19 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "algolab"
+version = "0.1.0"
+description = "Interpréteur pédagogique d'un pseudo code"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "lark>=1.1.7",
+]
+
+[project.scripts]
+algolab = "algolab.main:main"
+
+[project.urls]
+Homepage = "https://github.com/adandeigor/AlgoLab"

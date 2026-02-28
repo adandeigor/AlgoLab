@@ -1,0 +1,71 @@
+name: Build and Release AlgoLab
+
+on:
+  release:
+    types: [created]
+  # Permet de lancer ponctuellement à la main depuis l'interface Github
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        include:
+          - os: ubuntu-latest
+            artifact_name: algolab-linux
+            asset_name: algolab-linux
+          - os: windows-latest
+            artifact_name: algolab.exe
+            asset_name: algolab-windows.exe
+          - os: macos-latest
+            artifact_name: algolab
+            asset_name: algolab-macos
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -e .
+          pip install pyinstaller
+
+      - name: Build with PyInstaller
+        run: pyinstaller --name algolab --onefile src/algolab/main.py
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.asset_name }}
+          path: dist/${{ matrix.artifact_name }}
+
+  release:
+    name: Create Release Asset
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.event_name == 'release'
+    steps:
+      - name: Download Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: dist/
+
+      - name: List Artifacts
+        run: ls -R dist/
+
+      - name: Upload to Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            dist/algolab-linux/algolab-linux
+            dist/algolab-windows.exe/algolab.exe
+            dist/algolab-macos/algolab-macos
