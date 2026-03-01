@@ -24,3 +24,4 @@ coverage.xml
 # Editor
 .vscode/
 .idea/
+vscode-extension/*.vsix
