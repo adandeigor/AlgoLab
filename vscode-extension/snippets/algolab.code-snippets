@@ -1,0 +1,61 @@
+{
+  "Squelette de base": {
+    "prefix": ["algo", "programme", "debut"],
+    "body": [
+      "VARIABLE ${1:nom_variable} : ${2|ENTIER,REEL,BOOLEEN,CHAINE|}",
+      "",
+      "DEBUT",
+      "\t$0",
+      "FIN"
+    ],
+    "description": "Insère la structure de base (Variables, Début, Fin) d'un programme AlgoLab."
+  },
+  "Condition SI": {
+    "prefix": "si",
+    "body": [
+      "SI ${1:condition} ALORS",
+      "\t$0",
+      "FIN_SI"
+    ],
+    "description": "Bloc conditionnel SI ... ALORS"
+  },
+  "Condition SI SINON": {
+    "prefix": "sinon",
+    "body": [
+      "SI ${1:condition} ALORS",
+      "\t$2",
+      "SINON",
+      "\t$0",
+      "FIN_SI"
+    ],
+    "description": "Bloc conditionnel SI ... ALORS ... SINON"
+  },
+  "Boucle TANT QUE": {
+    "prefix": ["tant_que", "tant"],
+    "body": [
+      "TANT_QUE ${1:condition} FAIRE",
+      "\t$0",
+      "FIN_TANT_QUE"
+    ],
+    "description": "Boucle itérative TANT_QUE"
+  },
+  "Boucle POUR": {
+    "prefix": "pour",
+    "body": [
+      "POUR ${1:i} DE ${2:1} A ${3:10} FAIRE",
+      "\t$0",
+      "FIN_POUR"
+    ],
+    "description": "Boucle itérative POUR"
+  },
+  "Fonction": {
+    "prefix": "fonction",
+    "body": [
+      "FONCTION ${1:nom_fonction}(${2:parametre} : ${3:ENTIER}) : ${4:ENTIER}",
+      "\t$0",
+      "RETOURNER ${5:valeur}",
+      "FIN_FONCTION"
+    ],
+    "description": "Déclaration d'une nouvelle fonction"
+  }
+}

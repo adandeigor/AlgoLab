@@ -1,0 +1,73 @@
+{
+  "name": "AlgoLab",
+  "scopeName": "source.algolab",
+  "patterns": [
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#types"
+    },
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#numbers"
+    },
+    {
+      "include": "#booleans"
+    }
+  ],
+  "repository": {
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.algolab",
+          "match": "(?i)\\b(SI|ALORS|SINON_SI|SINON|FIN_SI|TANT_QUE|FAIRE|FIN_TANT_QUE|POUR|DE|A|PAS|FIN_POUR|RETOURNER)\\b"
+        },
+        {
+          "name": "keyword.declaration.algolab",
+          "match": "(?i)\\b(VARIABLE|FONCTION|FIN_FONCTION|DEBUT|FIN)\\b"
+        },
+        {
+          "name": "support.function.algolab",
+          "match": "(?i)\\b(LIRE|ECRIRE)\\b"
+        },
+        {
+          "name": "keyword.operator.logical.algolab",
+          "match": "(?i)\\b(ET|OU|NON)\\b"
+        }
+      ]
+    },
+    "types": {
+      "name": "entity.name.type.algolab",
+      "match": "(?i)\\b(ENTIER|REEL|CARACTERE|BOOLEEN|CHAINE)\\b"
+    },
+    "booleans": {
+      "name": "constant.language.boolean.algolab",
+      "match": "(?i)\\b(VRAI|FAUX)\\b"
+    },
+    "strings": {
+      "name": "string.quoted.double.algolab",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "name": "constant.character.escape.algolab",
+          "match": "\\\\."
+        }
+      ]
+    },
+    "numbers": {
+      "name": "constant.numeric.algolab",
+      "match": "\\b\\d+(\\.\\d+)?\\b"
+    },
+    "comments": {
+      "name": "comment.line.double-slash.algolab",
+      "match": "//.*$"
+    }
+  }
+}
