@@ -11,12 +11,32 @@
     "Programming Languages",
     "Snippets"
   ],
+  "main": "./extension.js",
+  "activationEvents": [
+    "onLanguage:algolab"
+  ],
   "icon": "images/algolab-full.png",
   "repository": {
     "type": "git",
     "url": "https://github.com/adandeigor/AlgoLab.git"
   },
   "contributes": {
+    "commands": [
+      {
+        "command": "algolab.run",
+        "title": "Exécuter AlgoLab",
+        "icon": "$(play)"
+      }
+    ],
+    "menus": {
+      "editor/title/run": [
+        {
+          "when": "resourceExtname == .algo",
+          "command": "algolab.run",
+          "group": "navigation"
+        }
+      ]
+    },
     "languages": [
       {
         "id": "algolab",
