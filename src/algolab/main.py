@@ -5,8 +5,8 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-from .errors import AlgoLabError
-from .interpreter import Interpreter
+from algolab.errors import AlgoLabError
+from algolab.interpreter import Interpreter
 
 
 def _read_source(path: Path) -> str:
