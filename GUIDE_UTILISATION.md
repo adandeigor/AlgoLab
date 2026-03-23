@@ -104,3 +104,16 @@ Sortie attendue : `5`
 
 - **Fichier introuvable**  
   Vérifie le chemin du fichier `.algo` et relance la commande depuis le bon dossier.
+
+## 7) Installer l'extension VS Code (optionnel)
+
+La release contient aussi un fichier `algolab-vscode.vsix`.
+
+Installation :
+
+- Ouvre VS Code
+- Va dans Extensions
+- Clique sur le menu `...` > `Install from VSIX...`
+- Sélectionne `algolab-vscode.vsix`
+
+Tu peux ensuite exécuter un fichier `.algo` depuis le bouton "Exécuter AlgoLab".

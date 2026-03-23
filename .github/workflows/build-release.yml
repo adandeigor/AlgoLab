@@ -112,9 +112,36 @@ jobs:
           name: ${{ matrix.asset_name }}
           path: ${{ matrix.artifact_path }}
 
+  build_extension:
+    name: Build VS Code Extension
+    needs: quality
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Package VS Code extension
+        run: |
+          cd vscode-extension
+          npm install
+          npx @vscode/vsce package --out ../dist/algolab-vscode.vsix
+
+      - name: Upload VSIX Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: algolab-vscode.vsix
+          path: dist/algolab-vscode.vsix
+
   release:
     name: Create Release Asset
-    needs: build
+    needs:
+      - build
+      - build_extension
     runs-on: ubuntu-latest
     if: github.event_name == 'release'
     permissions:
@@ -135,3 +162,4 @@ jobs:
             dist/algolab-linux.deb/algolab_*_amd64.deb
             dist/algolab-windows.exe/algolab.exe
             dist/algolab-macos/algolab
+            dist/algolab-vscode.vsix/algolab-vscode.vsix

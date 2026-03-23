@@ -35,6 +35,7 @@ Depuis les releases GitHub :
 - Linux : paquet `.deb`
 - Windows : exécutable `algolab.exe`
 - macOS : binaire `algolab`
+- VS Code : extension `algolab-vscode.vsix` (installation manuelle)
 
 ## ✅ Qualité et tests
 
@@ -55,6 +56,7 @@ pytest --cov=src/algolab --cov-report=term-missing
 
 - Documentation de conception : voir `docs/`
 - Guide d'utilisation après installation (Linux/macOS/Windows) : `GUIDE_UTILISATION.md`
+- Guide d'installation de l'extension VS Code : `vscode-extension/README.md`
 - Code source : `src/algolab/`
 - Exemples de code : `examples/`
 - Tests : `tests/`
