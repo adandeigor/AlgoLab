@@ -54,6 +54,7 @@ pytest --cov=src/algolab --cov-report=term-missing
 ## 📚 Documentation & Exemples
 
 - Documentation de conception : voir `docs/`
+- Guide d'utilisation après installation (Linux/macOS/Windows) : `GUIDE_UTILISATION.md`
 - Code source : `src/algolab/`
 - Exemples de code : `examples/`
 - Tests : `tests/`
