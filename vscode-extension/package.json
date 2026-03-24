@@ -2,7 +2,7 @@
   "name": "algolab-vscode",
   "displayName": "AlgoLab",
   "description": "Coloration syntaxique et snippets pour le pseudo-code AlgoLab",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "algolab",
   "engines": {
     "vscode": "^1.80.0"
@@ -12,6 +12,11 @@
     "Snippets"
   ],
   "main": "./extension.js",
+  "activationEvents": [
+    "onCommand:algolab.run",
+    "onCommand:algolab.validate",
+    "onLanguage:algolab"
+  ],
   "icon": "images/algolab-full.png",
   "repository": {
     "type": "git",
@@ -23,6 +28,11 @@
         "command": "algolab.run",
         "title": "Exécuter AlgoLab",
         "icon": "$(play)"
+      },
+      {
+        "command": "algolab.validate",
+        "title": "Vérifier AlgoLab",
+        "icon": "$(check)"
       }
     ],
     "configuration": {
@@ -32,6 +42,17 @@
           "type": "string",
           "default": "algolab",
           "description": "Chemin vers l'exécutable AlgoLab (commande ou chemin absolu)."
+        },
+        "algolab.diagnosticsOnSave": {
+          "type": "boolean",
+          "default": true,
+          "description": "Exécute une validation AlgoLab à chaque sauvegarde de fichier .algo."
+        },
+        "algolab.diagnosticsTimeoutMs": {
+          "type": "number",
+          "default": 3000,
+          "minimum": 500,
+          "description": "Timeout (en ms) pour la validation des diagnostics AlgoLab."
         }
       }
     },
@@ -40,6 +61,11 @@
         {
           "when": "resourceExtname == .algo",
           "command": "algolab.run",
+          "group": "navigation"
+        },
+        {
+          "when": "resourceExtname == .algo",
+          "command": "algolab.validate",
           "group": "navigation"
         }
       ]
