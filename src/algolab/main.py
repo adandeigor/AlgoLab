@@ -3,10 +3,16 @@
 from __future__ import annotations
 
 import argparse
+from importlib.metadata import version, PackageNotFoundError
 from pathlib import Path
 
 from algolab.errors import AlgoLabError
 from algolab.interpreter import Interpreter
+
+try:
+    __version__ = version("algolab")
+except PackageNotFoundError:
+    __version__ = "unknown"
 
 
 def _read_source(path: Path) -> str:
@@ -19,6 +25,7 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="AlgoLab interpreter")
     parser.add_argument("source", nargs="?", help="Fichier .algo a executer")
     parser.add_argument("-c", "--code", help="Executer du code fourni en argument")
+    parser.add_argument("--version", action="version", version=f"AlgoLab {__version__}")
     args = parser.parse_args(argv)
 
     try:
