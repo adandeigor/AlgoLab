@@ -218,5 +218,6 @@ Construit avec ❤️ depuis Cotonou, Bénin 🇧🇯
 ---
 
 <p align="center">
-  <strong>⭐ Si AlgoLab vous aide, laissez une étoile sur GitHub !</strong>
+  <strong>⭐ Si AlgoLab vous aide, laissez une étoile sur GitHub !</strong><br><br>
+  <em>— The Pirate Dev 🏴‍☠️</em>
 </p>
