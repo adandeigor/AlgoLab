@@ -6,6 +6,7 @@ from dataclasses import dataclass
 from typing import Any, Optional
 
 from .errors import RuntimeErrorAlgoLab, SemanticErrorAlgoLab
+from .utils import build_suggestion_string, suggest_var
 
 
 @dataclass(frozen=True)
@@ -88,7 +89,9 @@ class Environment:
 			return self._values[name]
 		if self._parent is not None:
 			return self._parent._resolve(name)
-		raise SemanticErrorAlgoLab(f"Variable non declaree: {name}")
+		suggestion = suggest_var(name, self._values.keys())
+		suggestion_message = build_suggestion_string(suggestion)
+		raise SemanticErrorAlgoLab(f"Variable non declaree: {name}.{suggestion_message}")
 
 	def _coerce_value(self, type_spec: TypeSpec, value: Any) -> Any:
 		if type_spec.is_array:
