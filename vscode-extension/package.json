@@ -3,7 +3,7 @@
   "displayName": "AlgoLab",
   "description": "Coloration syntaxique et snippets pour le pseudo-code AlgoLab",
   "version": "0.1.1",
-  "publisher": "algolab",
+  "publisher": "Hustlerlabs",
   "engines": {
     "vscode": "^1.80.0"
   },
