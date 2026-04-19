@@ -159,6 +159,9 @@ jobs:
       - name: Upload to Release
         uses: softprops/action-gh-release@v1
         with:
+          tag_name: "latest"
+          name: "Dernière version (Latest)"
+          prerelease: true
           files: |
             dist/algolab-linux.deb/algolab_*_amd64.deb
             dist/algolab-windows.exe/algolab.exe
