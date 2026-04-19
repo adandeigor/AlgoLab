@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import argparse
-from importlib.metadata import version, PackageNotFoundError
+from importlib.metadata import PackageNotFoundError, version
 from pathlib import Path
 
 from algolab.errors import AlgoLabError
