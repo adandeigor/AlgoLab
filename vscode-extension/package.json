@@ -17,7 +17,7 @@
     "onCommand:algolab.validate",
     "onLanguage:algolab"
   ],
-  "icon": "images/algolab-full.png",
+  "icon": "images/algolab-icon.png",
   "repository": {
     "type": "git",
     "url": "https://github.com/adandeigor/AlgoLab.git"
