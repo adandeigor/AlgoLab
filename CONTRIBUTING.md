@@ -38,6 +38,29 @@ Il y a de nombreuses façons de contribuer, même sans écrire de code :
 
 ---
 
+## 🤖 Contributions générées par des agents IA
+
+Les contributions produites avec l'aide d'agents IA (GitHub Copilot, 
+Claude Code, rawcell, ou tout autre outil autonome) sont les bienvenues 
+dans AlgoLab, sous une condition non négociable :
+
+**Un humain doit avoir relu, compris et testé le code avant de soumettre 
+la PR.**
+
+Concrètement :
+- La description de la PR doit mentionner explicitement l'outil utilisé.
+- Le contributeur humain est responsable du code soumis, qu'il l'ait 
+  écrit lui-même ou qu'un agent l'ait généré.
+- Toute PR soumise directement par un agent sans validation humaine 
+  explicite sera fermée sans review. Le contributeur humain pourra la 
+  réouvrir après relecture.
+
+Ce n'est pas un rejet des outils IA — c'est une exigence de 
+responsabilité. Le code qui entre dans `main` doit être compris et 
+assumé par quelqu'un.
+
+---
+
 ## 🏁 Premiers pas
 
 ### 1. Fork et clone
